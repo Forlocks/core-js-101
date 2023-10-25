@@ -110,9 +110,9 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  let scalar = x1 * x2 + y1 * y2;
-  let abs1 = Math.sqrt(x1 ** 2 + y1 ** 2);
-  let abs2 = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const scalar = x1 * x2 + y1 * y2;
+  const abs1 = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const abs2 = Math.sqrt(x2 ** 2 + y2 ** 2);
 
   return Math.acos(scalar / (abs1 * abs2));
 }
@@ -130,7 +130,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  let stringValue = String(value);
+  const stringValue = String(value);
 
   return stringValue[stringValue.length - 1];
 }
@@ -187,10 +187,10 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  num = num / (10 ** pow);
-  num = Math.round(num) * (10 ** pow);
+  let result = num / (10 ** pow);
+  result = Math.round(result) * (10 ** pow);
 
-  return num;
+  return result;
 }
 
 /**
@@ -211,7 +211,7 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; i < n; i += 1) {
     if (n % i === 0) {
       return false;
     }
@@ -238,9 +238,8 @@ function isPrime(n) {
 function toNumber(value, def) {
   if (Number.isNaN(+value)) {
     return def;
-  } else {
-    return +value;
   }
+  return +value;
 }
 
 module.exports = {

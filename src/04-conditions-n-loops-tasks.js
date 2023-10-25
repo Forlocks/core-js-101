@@ -30,13 +30,12 @@
 function getFizzBuzz(num) {
   if (num % 3 === 0 && num % 5 === 0) {
     return 'FizzBuzz';
-  } else if (num % 3 === 0) {
+  } if (num % 3 === 0) {
     return 'Fizz';
-  } else if (num % 5 === 0) {
+  } if (num % 5 === 0) {
     return 'Buzz';
-  } else {
-    return num;
   }
+  return num;
 }
 
 
@@ -99,9 +98,8 @@ function getSumBetweenNumbers(n1, n2) {
 function isTriangle(a, b, c) {
   if (a + b <= c || a + c <= b || b + c <= a) {
     return false;
-  } else {
-    return true;
   }
+  return true;
 }
 
 
@@ -139,36 +137,35 @@ function isTriangle(a, b, c) {
  */
 function doRectanglesOverlap(rect1, rect2) {
   // Координаты точек первого прямоугольника
-  let dot1_1 = {x: rect1.left, y: rect1.top};
-  let dot1_2 = {x: rect1.left + rect1.width, y: rect1.top};
-  let dot1_3 = {x: rect1.left + rect1.width, y: rect1.top + rect1.height};
-  let dot1_4 = {x: rect1.left, y: rect1.top + rect1.height};
+  const dot11 = { x: rect1.left, y: rect1.top };
+  const dot12 = { x: rect1.left + rect1.width, y: rect1.top };
+  const dot13 = { x: rect1.left + rect1.width, y: rect1.top + rect1.height };
+  const dot14 = { x: rect1.left, y: rect1.top + rect1.height };
 
-// Координаты точек второго прямоугольника
-  let dot2_1 = {x: rect2.left, y: rect2.top};
-  let dot2_2 = {x: rect2.left + rect2.width, y: rect2.top};
-  let dot2_3 = {x: rect2.left + rect2.width, y: rect2.top + rect2.height};
-  let dot2_4 = {x: rect2.left, y: rect2.top + rect2.height};
+  // Координаты точек второго прямоугольника
+  const dot21 = { x: rect2.left, y: rect2.top };
+  const dot22 = { x: rect2.left + rect2.width, y: rect2.top };
+  const dot23 = { x: rect2.left + rect2.width, y: rect2.top + rect2.height };
+  const dot24 = { x: rect2.left, y: rect2.top + rect2.height };
 
-  if (dot1_1.x >= dot2_1.x && dot1_1.x <= dot2_2.x && dot1_1.y >= dot2_1.y && dot1_1.y <= dot2_4.y) {
+  if (dot11.x >= dot21.x && dot11.x <= dot22.x && dot11.y >= dot21.y && dot11.y <= dot24.y) {
     return true; // Если первая точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot1_2.x >= dot2_1.x && dot1_2.x <= dot2_2.x && dot1_2.y >= dot2_1.y && dot1_2.y <= dot2_4.y) {
+  } if (dot12.x >= dot21.x && dot12.x <= dot22.x && dot12.y >= dot21.y && dot12.y <= dot24.y) {
     return true; // Если вторая точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot1_3.x >= dot2_1.x && dot1_3.x <= dot2_2.x && dot1_3.y >= dot2_1.y && dot1_3.y <= dot2_4.y) {
+  } if (dot13.x >= dot21.x && dot13.x <= dot22.x && dot13.y >= dot21.y && dot13.y <= dot24.y) {
     return true; // Если третья точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot1_4.x >= dot2_1.x && dot1_4.x <= dot2_2.x && dot1_4.y >= dot2_1.y && dot1_4.y <= dot2_4.y) {
+  } if (dot14.x >= dot21.x && dot14.x <= dot22.x && dot14.y >= dot21.y && dot14.y <= dot24.y) {
     return true; // Если четвёртая точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot2_1.x >= dot1_1.x && dot2_1.x <= dot1_2.x && dot2_1.y >= dot1_1.y && dot2_1.y <= dot1_4.y) {
+  } if (dot21.x >= dot11.x && dot21.x <= dot12.x && dot21.y >= dot11.y && dot21.y <= dot14.y) {
     return true; // Если первая точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot2_2.x >= dot1_1.x && dot2_2.x <= dot1_2.x && dot2_2.y >= dot1_1.y && dot2_2.y <= dot1_4.y) {
+  } if (dot22.x >= dot11.x && dot22.x <= dot12.x && dot22.y >= dot11.y && dot22.y <= dot14.y) {
     return true; // Если вторая точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot2_3.x >= dot1_1.x && dot2_3.x <= dot1_2.x && dot2_3.y >= dot1_1.y && dot2_3.y <= dot1_4.y) {
+  } if (dot23.x >= dot11.x && dot23.x <= dot12.x && dot23.y >= dot11.y && dot23.y <= dot14.y) {
     return true; // Если третья точка первого прямоугольника внутри второго прямоугольника
-  } else if (dot2_4.x >= dot1_1.x && dot2_4.x <= dot1_2.x && dot2_4.y >= dot1_1.y && dot2_4.y <= dot1_4.y) {
+  } if (dot24.x >= dot11.x && dot24.x <= dot12.x && dot24.y >= dot11.y && dot24.y <= dot14.y) {
     return true; // Если четвёртая точка первого прямоугольника внутри второго прямоугольника
-  } else {
-    return false;
   }
+  return false;
 }
 
 
@@ -199,11 +196,10 @@ function doRectanglesOverlap(rect1, rect2) {
  *
  */
 function isInsideCircle(circle, point) {
-  if ((circle.center.x - point.x)** 2 + (circle.center.y - point.y) ** 2 < circle.radius ** 2) {
+  if ((circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2 < circle.radius ** 2) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 
@@ -219,7 +215,7 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  for (let i = 0; i < str.length - 1; i++) {
+  for (let i = 0; i < str.length - 1; i += 1) {
     if (str.indexOf(str[i], i + 1) < 0) {
       if (str.slice(0, i).indexOf(str[i]) < 0) {
         return str[i];
@@ -254,7 +250,7 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  let result = [];
+  const result = [];
 
   if (isStartIncluded === true) {
     result.push('[');
@@ -335,29 +331,28 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-  ccn = String(ccn);
+  const result = String(ccn);
 
   let sum = 0;
 
-  for (let i = 0, symbol; i < ccn.length; i++) {
-    symbol = +ccn[i];
+  for (let i = 0, symbol; i < result.length; i += 1) {
+    symbol = +result[i];
 
-    if (i % 2 === ccn.length % 2) {
-      symbol = symbol * 2;
+    if (i % 2 === result.length % 2) {
+      symbol *= 2;
 
       if (symbol >= 10) {
-        symbol = symbol - 9;
+        symbol -= 9;
       }
     }
 
-    sum = sum + symbol;
+    sum += symbol;
   }
 
   if (sum % 10 !== 0) {
     return false;
-  } else {
-    return true;
   }
+  return true;
 }
 
 /**
@@ -375,25 +370,24 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-  num = String(num);
+  let result = String(num);
   let sum = 0;
 
-  for (let i = 0; i < num.length; i++) {
-    sum += +num[i];
+  for (let i = 0; i < result.length; i += 1) {
+    sum += +result[i];
   }
 
   if (sum > 9) {
-    num = String(sum);
+    result = String(sum);
     sum = 0;
 
-    for (let i = 0; i < num.length; i++) {
-      sum += +num[i];
+    for (let i = 0; i < result.length; i += 1) {
+      sum += +result[i];
     }
 
     return sum;
-  } else {
-    return sum;
   }
+  return sum;
 }
 
 
@@ -419,33 +413,33 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(str) {
-  bracketsConfig = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']];
+  const bracketsConfig = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']];
 
   if (str.length === 0) {
     return true;
-  } else if (str.length === 1) {
+  } if (str.length === 1) {
     return false;
-  } else {
-    let stack = [];
+  }
+  const stack = [];
 
-    for (let i = 0; i < str.length; i++) {
-      for (let j = 0; j < bracketsConfig.length; j++) {
-        if (str[i] == bracketsConfig[j][1] && stack.length !== 0 && stack[stack.length - 1] === bracketsConfig[j][0]) { // Если закрывающая скобка, стек не пустой и top - нужная пара
-          stack.pop();
-        } else if (str[i] == bracketsConfig[j][0]) { // Если открывающая скобка
-          stack.push(str[i]);
-        } else if (str[i] == bracketsConfig[j][1] && stack.length === 0) { // Если закрывающая скобка и стек пустой
-          return false;
-        }
+  for (let i = 0; i < str.length; i += 1) {
+    for (let j = 0; j < bracketsConfig.length; j += 1) {
+      if (str[i] === bracketsConfig[j][1] && stack.length !== 0
+        && stack[stack.length - 1] === bracketsConfig[j][0]) {
+        stack.pop();
+      } else if (str[i] === bracketsConfig[j][0]) {
+        stack.push(str[i]);
+      } else if (str[i] === bracketsConfig[j][1]
+        && stack.length === 0) {
+        return false;
       }
     }
-
-    if (stack.length === 0) {
-      return true;
-    } else {
-      return false;
-    }
   }
+
+  if (stack.length === 0) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -489,20 +483,18 @@ function toNaryString(num, n) {
 function getCommonDirectoryPath(pathes) {
   let result;
 
-  for (let i = 0; i < pathes.length; i++) {
-    for (let j = 0; j < pathes[i].length; j++) {
+  for (let i = 0; i < pathes.length; i += 1) {
+    for (let j = 0; j < pathes[i].length; j += 1) {
       if (i === 0) {
         result = pathes[i];
-      } else {
-        if (pathes[i][j] !== result[j]) {
-          result = result.slice(0, j);
-          break;
-        }
+      } else if (pathes[i][j] !== result[j]) {
+        result = result.slice(0, j);
+        break;
       }
     }
   }
 
-  for (let i = result.length - 1; i >= 0; i--) {
+  for (let i = result.length - 1; i >= 0; i -= 1) {
     if (result[i] === '/') {
       break;
     }
@@ -533,15 +525,15 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-  let result = new Array(m1.length);
+  const result = new Array(m1.length);
 
-  for (let i = 0; i < m1.length; i++) {
-    result[i] = new Array(m2[0].length); // Создаём строку с результами перемножения i строки первой матрица на j столбец второй матрицы
+  for (let i = 0; i < m1.length; i += 1) {
+    result[i] = new Array(m2[0].length); // Создаём строку с результами перемножения i на j
 
-    for (let j = 0; j < m2[0].length; j++) { // Заполняем её суммой произведений
+    for (let j = 0; j < m2[0].length; j += 1) { // Заполняем её суммой произведений
       result[i][j] = 0; // Стартовое значение суммы
 
-      for (let k = 0; k < m1[0].length; k++) { // Перемножаем элементы и суммируем
+      for (let k = 0; k < m1[0].length; k += 1) { // Перемножаем элементы и суммируем
         result[i][j] += m1[i][k] * m2[k][j];
       }
     }
@@ -582,30 +574,30 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-  if (typeof(position[0][0]) !== 'undefined' && position[0][0] === position[0][1] && position[0][0] === position[0][2]) { // Если есть выигрыш по горизонтали
+  if (typeof (position[0][0]) !== 'undefined' && position[0][0] === position[0][1] && position[0][0] === position[0][2]) { // Если есть выигрыш по горизонтали
     return position[0][0];
   }
-  if (typeof(position[1][0]) !== 'undefined' && position[1][0] === position[1][1] && position[1][0] === position[1][2]) {
+  if (typeof (position[1][0]) !== 'undefined' && position[1][0] === position[1][1] && position[1][0] === position[1][2]) {
     return position[1][0];
   }
-  if (typeof(position[2][0]) !== 'undefined' && position[2][0] === position[2][1] && position[2][0] === position[2][2]) {
+  if (typeof (position[2][0]) !== 'undefined' && position[2][0] === position[2][1] && position[2][0] === position[2][2]) {
     return position[2][0];
   }
 
-  if (typeof(position[0][0]) !== 'undefined' && position[0][0] === position[1][0] && position[0][0] === position[2][0]) { // Если есть выигрыш по вертикали
+  if (typeof (position[0][0]) !== 'undefined' && position[0][0] === position[1][0] && position[0][0] === position[2][0]) { // Если есть выигрыш по вертикали
     return position[0][0];
   }
-  if (typeof(position[0][1]) !== 'undefined' && position[0][1] === position[1][1] && position[0][1] === position[2][1]) {
+  if (typeof (position[0][1]) !== 'undefined' && position[0][1] === position[1][1] && position[0][1] === position[2][1]) {
     return position[0][1];
   }
-  if (typeof(position[0][2]) !== 'undefined' && position[0][2] === position[1][2] && position[0][2] === position[2][2]) {
+  if (typeof (position[0][2]) !== 'undefined' && position[0][2] === position[1][2] && position[0][2] === position[2][2]) {
     return position[0][2];
   }
 
-  if (typeof(position[0][0]) !== 'undefined' && position[0][0] === position[1][1] && position[0][0] === position[2][2]) { // Если есть выигрыш по диагонали
+  if (typeof (position[0][0]) !== 'undefined' && position[0][0] === position[1][1] && position[0][0] === position[2][2]) { // Если есть выигрыш по диагонали
     return position[0][0];
   }
-  if (typeof(position[0][2]) !== 'undefined' && position[0][2] === position[1][1] && position[0][2] === position[2][0]) {
+  if (typeof (position[0][2]) !== 'undefined' && position[0][2] === position[1][1] && position[0][2] === position[2][0]) {
     return position[0][2];
   }
 

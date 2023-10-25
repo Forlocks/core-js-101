@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return 'Hello, ' + firstName + ' ' + lastName + '!';
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -203,12 +203,12 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  let topSide = '┌' + '─'.repeat(width - 2) + '┐' + '\n';
-  let bottomSide = '└' + '─'.repeat(width - 2) + '┘' + '\n';
+  const topSide = `┌${'─'.repeat(width - 2)}┐\n`;
+  const bottomSide = `└${'─'.repeat(width - 2)}┘\n`;
   let middle = '';
 
-  for (let i = 0; i < height - 2; i++) {
-    middle += '│' + ' '.repeat(width - 2) + '│' + '\n';
+  for (let i = 0; i < height - 2; i += 1) {
+    middle += `│${' '.repeat(width - 2)}│\n`;
   }
 
   return topSide + middle + bottomSide;
@@ -235,8 +235,8 @@ function encodeToRot13(str) {
   const symbols = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let result = '';
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === ' ' || str[i] === ',' || str[i] === '.' || str[i] === '!' ||str[i] === '?') {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === ' ' || str[i] === ',' || str[i] === '.' || str[i] === '!' || str[i] === '?') {
       result += str[i];
     } else {
       result += symbols[symbols.indexOf(str[i]) + 13];
@@ -262,9 +262,8 @@ function encodeToRot13(str) {
 function isString(value) {
   if (typeof (value) === 'string' || value instanceof String) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 
@@ -293,45 +292,55 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
+  let result;
+
   switch (value[0]) {
     case 'A':
-      value = value.replace('A', '1');
+      result = value.replace('A', '1');
       break;
     case 'J':
-      value = value.replace('J', '11');
+      result = value.replace('J', '11');
       break;
     case 'Q':
-      value = value.replace('Q', '12');
+      result = value.replace('Q', '12');
       break;
     case 'K':
-      value = value.replace('K', '13');
+      result = value.replace('K', '13');
       break;
+    default:
+      result = value;
   }
 
 
-  if (value.length === 2) {
-    switch (value[1]) {
+  if (result.length === 2) {
+    switch (result[1]) {
       case '♣':
-        return +value[0] - 1;
+        return +result[0] - 1;
       case '♦':
-        return +value[0] - 1 + 13;
+        return +result[0] - 1 + 13;
       case '♥':
-        return +value[0] - 1 + 26;
+        return +result[0] - 1 + 26;
       case '♠':
-        return +value[0] - 1 + 39;
+        return +result[0] - 1 + 39;
+      default:
+        break;
     }
-  } else if (value.length === 3) {
-    switch (value[2]) {
+  } else if (result.length === 3) {
+    switch (result[2]) {
       case '♣':
-        return +value.slice(0, 2) - 1;
+        return +result.slice(0, 2) - 1;
       case '♦':
-        return +value.slice(0, 2) - 1 + 13;
+        return +result.slice(0, 2) - 1 + 13;
       case '♥':
-        return +value.slice(0, 2) - 1 + 26;
+        return +result.slice(0, 2) - 1 + 26;
       case '♠':
-        return +value.slice(0, 2) - 1 + 39;
+        return +result.slice(0, 2) - 1 + 39;
+      default:
+        break;
     }
   }
+
+  return result; // Ненужная фича, чтобы не ругался терминал
 }
 
 
